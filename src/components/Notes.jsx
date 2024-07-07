@@ -3,8 +3,10 @@ import { useContext, useState } from "react";
 import NoteContext from "../context/notes/Notecontext";
 import NewsItem from "./NewsItem";
 import AddNotes from "./AddNotes";
+import { useNavigate } from "react-router-dom"
 
 const Notes = () => {
+  const navigate = useNavigate()
   const context = useContext(NoteContext);
   const { notes, getNote, editNote } = context;
   const [note, setNote] = useState({
@@ -13,7 +15,12 @@ const Notes = () => {
     etag: "default",
   });
   useEffect(() => {
+    if(localStorage.getItem("Token")){
     getNote();
+    }
+    else{
+      navigate("/login")
+    }
   }, []);
   const updateNote = (currentNote) => {
     document.getElementById("my_modal_1").showModal();
@@ -30,7 +37,6 @@ const Notes = () => {
   };
   
   const handleSubmitBtn=(e)=>{
-    console.log(note.eid)
     editNote(note.eid,note.etitle,note.edescription,note.etag)
   }
 

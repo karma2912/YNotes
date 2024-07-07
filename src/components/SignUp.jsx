@@ -1,9 +1,9 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import { useState} from "react"
-import { useNavigate } from "react-router-dom"
+import Check from './Check';
 
 const SignUp = () => {
-  const navigate = useNavigate()
   const [credentials,setCredentials] = useState({name:"",email:"",password:""})
   const handleClick= async (e)=>{
     const {name,email,password} = credentials;
@@ -18,7 +18,7 @@ const SignUp = () => {
       const json = await response.json();
       console.log(json)
       if(json){
-        navigate("/")
+        document.getElementById("my_modal_1").showModal()
       }
     }
   const onchange = (e) => {
@@ -26,10 +26,32 @@ const SignUp = () => {
   };
   return (
     <>
+    <div>
+    <dialog
+        id="my_modal_1"
+        className="modal border-2 border-indigo-600 rounded-3xl shadow-2xl"
+      >
+        <div className="modal-box h-[15rem] w-[20rem]">
+          <div className="p-4 w-full">
+            Account has been created Successfully Now login with the credentials to save your New Notes!!!
+          </div>
+          <div className='flex justify-center items-center'>
+            <Check/>
+          </div>
+            <form method="dialog" className="flex justify-around items-center text-white p-4">
+              {/* if there is a button in form, it will close the modal */}
+              <button className="btn border-1 bg-indigo-600 pt-1 pb-1 pl-5 pr-5 rounded">
+                Close
+              </button>
+              <Link className='btn border-1 bg-indigo-600 pt-1 pb-1 pl-5 pr-5 rounded' to="/login">Login</Link>
+            </form>
+        </div>
+      </dialog>
+    </div>
     <section className="text-gray-600 body-font relative">
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-12">
-          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Login</h1>
+          <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Sign Up</h1>
           <p>Login to access your Saved Notes</p>
       </div>
       <div className="lg:w-1/2 md:w-2/3 mx-auto">

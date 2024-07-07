@@ -10,7 +10,6 @@ const NewsItem = (props) => {
     deleteNote(notes._id)
   }
   const handleEditClick=()=>{
-    console.log("Edit is being Clicked ")
     updateNote(notes)
   }
   return (

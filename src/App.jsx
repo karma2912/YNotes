@@ -16,11 +16,11 @@ function App() {
     <>
     <Notestate>
     <Routes>
-      <Route path='/' element={<><Navbar/><Home/><Notes/><Footer/></>}/>
-      <Route path='/about'  element={<><Navbar/><About/><Footer/></>}/>
-      <Route path='/contact'  element={<><Navbar/><Contact/><Footer/></>}/>
-      <Route path='/login'  element={<><Navbar/><Login/><Footer/></>}/>
-      <Route path='/signup'  element={<><Navbar/><SignUp/><Footer/></>}/>
+      <Route path='/' element={<><Navbar/><hr/><Home/><Notes/><Footer/></>}/>
+      <Route path='/about'  element={<><Navbar/><hr/><About/><Footer/></>}/>
+      <Route path='/contact'  element={<><Navbar/><hr/><Contact/><Footer/></>}/>
+      <Route path='/login'  element={<><Navbar/><hr/><Login/><Footer/></>}/>
+      <Route path='/signup'  element={<><Navbar/><hr/><SignUp/><Footer/></>}/>
     </Routes>
     </Notestate>
     </>
