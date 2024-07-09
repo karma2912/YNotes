@@ -4,6 +4,7 @@ import { useState} from "react"
 import Check from './Check';
 
 const SignUp = () => {
+  localStorage.removeItem("Token")
   const [credentials,setCredentials] = useState({name:"",email:"",password:""})
   const handleClick= async (e)=>{
     const {name,email,password} = credentials;
@@ -52,7 +53,7 @@ const SignUp = () => {
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-col text-center w-full mb-12">
           <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Sign Up</h1>
-          <p>Login to access your Saved Notes</p>
+          <p>Create a New Account</p>
       </div>
       <div className="lg:w-1/2 md:w-2/3 mx-auto">
         <div className="flex flex-wrap -m-2">

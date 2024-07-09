@@ -32,30 +32,15 @@ const Navbar = () => {
               Contact
             </Link>
           </nav>
-          {!localStorage.getItem("Token") ? (
+          { !localStorage.getItem("Token") ?
             <div className="sm:mt-0 mt-4">
-              <Link
-                className="border-2 border-indigo-600 pt-1 pb-1 pl-3 pr-3 mr-2 rounded bg-indigo-600 text-white"
-                to="/login"
-              >
-                Login
-              </Link>
-              <Link
-                className="border-2 border-indigo-600 pt-1 pb-1 pl-3 pr-3 ml-2 rounded bg-indigo-600 text-white"
-                to="/signup"
-              >
-                Sign Up
-              </Link>
-            </div>
-          ) : (
-            <Link
-              className="border-2 border-indigo-600 pt-1 pb-1 pl-3 pr-3 mr-2 rounded bg-indigo-600 text-white"
-              to="/login"
-              onClick={handleLogout}
-            >
-              Log Out
-            </Link>
-          )}
+              <Link className="border-2 border-indigo-600 pt-1 pb-1 pl-3 pr-3 mr-2 rounded bg-indigo-600 text-white" to="/login">Login</Link>
+              <Link className="border-2 border-indigo-600 pt-1 pb-1 pl-3 pr-3 ml-2 rounded bg-indigo-600 text-white" to="/signup">Sign Up</Link>
+            </div> : 
+             <div className="sm:mt-0 mt-4">
+              <Link className="border-2 border-indigo-600 pt-1 pb-1 pl-3 pr-3 mr-2 rounded bg-indigo-600 text-white" to="/login" onClick={handleLogout}>Log Out</Link>
+             </div>
+          }
         </div>
       </header>
     </>

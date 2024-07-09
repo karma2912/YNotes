@@ -46,19 +46,19 @@ router.post ("/registeruser" , [
    ], async (req,res)=>{
          const errors = validationResult(req);
          if (!errors.isEmpty()) {
-            return res.status(400).json({errors:errors.array()})
+            return res.send("User doesn't exists")
          }
       // Accessing the stored user data in the database
       const {email,password} = req.body
    try{
       let user = await User.findOne({email})
       if(!user){
-         return res.status(400).json("Hii i am from inside email error")
+         return res.send("User doesn't exists")
       }
       // Comparing the password of the user with the password stored
       const comparedPass = await bcrypt.compare(password,user.password)
       if(!comparedPass){
-         return res.status(400).json({error:"Please enter proper crendentials"})
+         return res.send("User Credentials doesn't matched")
          }
       // Giving the id of user in an object
          const data = {

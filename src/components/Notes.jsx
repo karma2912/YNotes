@@ -16,11 +16,12 @@ const Notes = () => {
   });
   useEffect(() => {
     if(localStorage.getItem("Token")){
-    getNote();
+      getNote();
     }
     else{
-      navigate("/login")
+    navigate("/login")
     }
+
   }, []);
   const updateNote = (currentNote) => {
     document.getElementById("my_modal_1").showModal();

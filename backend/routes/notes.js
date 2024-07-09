@@ -35,8 +35,13 @@ router.post(
 
 // Route 2 to Fetch all the saved notes http://localhost:3000/api/notes/getnotes
 router.get("/getnotes", fetchUser, async (req, res) => {
-  const note = await Notes.find({ user: req.user.id });
+  try {
+    const note = await Notes.find({ user: req.user.id });
   res.json(note);
+  } catch (error) {
+    console.error(error.message);
+        res.status(500).send("Internal Server Error")
+  } 
 });
 
 //Route 3 to Update an existing notes http://localhost:3000/api/notes/updatenotes/:id
