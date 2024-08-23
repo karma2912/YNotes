@@ -58,7 +58,7 @@ router.post ("/registeruser" , [
       // Comparing the password of the user with the password stored
       const comparedPass = await bcrypt.compare(password,user.password)
       if(!comparedPass){
-         return res.send("User Credentials doesn't matched")
+         return res.send({"User Credentials": "doesn't matched"})
          }
       // Giving the id of user in an object
          const data = {
